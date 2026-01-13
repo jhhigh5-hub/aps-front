@@ -1,0 +1,33 @@
+import { fi } from "date-fns/locale";
+
+export async function getJobs() {
+  const response = await fetch("http://192.168.0.14:8080/api/jobs");
+  const json = await response.json();
+  return json;
+}
+
+export async function postJobs(jobs) {
+  const response = await fetch("http://192.168.0.14:8080/api/jobs", {
+    headers: {
+      "Content-type": "application/json",
+    },
+    method: "post",
+    body: JSON.stringify({ jobs: jobs }),
+  });
+  if (response.status === 200) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+export async function parseXLS(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  const response = await fetch("http://192.168.0.14:8080/api/jobs/parse/xls", {
+    method: "post",
+    body: formData,
+  });
+  const json = await response.json();
+  return json;
+}
