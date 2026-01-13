@@ -1,3 +1,3 @@
-export function SimulationDetail() {
+export default function SimulationDetail() {
     return <></>
 }
