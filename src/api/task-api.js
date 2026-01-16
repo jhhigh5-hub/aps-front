@@ -1,6 +1,6 @@
 export async function getTasks() {
   const response = await fetch(
-    `http://${process.env.NEXT_PUBLIC_APS_SERVER}0.14:8080/api/tasks`
+    `http://${process.env.NEXT_PUBLIC_APS_SERVER}:8080/api/tasks`
   );
   const json = await response.json();
   return json;
@@ -8,7 +8,7 @@ export async function getTasks() {
 
 export async function postTasks(tasks) {
   const response = await fetch(
-    `http://${process.env.NEXT_PUBLIC_APS_SERVER}0.14:8080/api/tasks`,
+    `http://${process.env.NEXT_PUBLIC_APS_SERVER}:8080/api/tasks`,
     {
       headers: {
         "Content-type": "application/json",

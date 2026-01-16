@@ -38,7 +38,7 @@ export default function ScenarioDialog() {
     const scheduleAt =
       scenario.scheduleDate.split("T")[0] + "T" + scenario.scheduleTime;
     const response = await fetch(
-      `http://${process.env.NEXT_PUBLIC_APS_SERVER}0.14:8080/api/scenarios`,
+      `http://${process.env.NEXT_PUBLIC_APS_SERVER}:8080/api/scenarios`,
       {
         method: "post",
         headers: {

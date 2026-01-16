@@ -2,7 +2,7 @@ import { fi } from "date-fns/locale";
 
 export async function getJobs() {
   const response = await fetch(
-    `http://${process.env.NEXT_PUBLIC_APS_SERVER}0.14:8080/api/jobs`
+    `http://${process.env.NEXT_PUBLIC_APS_SERVER}:8080/api/jobs`
   );
   const json = await response.json();
   return json;
@@ -10,7 +10,7 @@ export async function getJobs() {
 
 export async function postJobs(jobs) {
   const response = await fetch(
-    `http://${process.env.NEXT_PUBLIC_APS_SERVER}0.14:8080/api/jobs`,
+    `http://${process.env.NEXT_PUBLIC_APS_SERVER}:8080/api/jobs`,
     {
       headers: {
         "Content-type": "application/json",
@@ -30,7 +30,7 @@ export async function parseXLS(file) {
   const formData = new FormData();
   formData.append("file", file);
   const response = await fetch(
-    `http://${process.env.NEXT_PUBLIC_APS_SERVER}0.14:8080/api/jobs/parse/xls`,
+    `http://${process.env.NEXT_PUBLIC_APS_SERVER}:8080/api/jobs/parse/xls`,
     {
       method: "post",
       body: formData,
